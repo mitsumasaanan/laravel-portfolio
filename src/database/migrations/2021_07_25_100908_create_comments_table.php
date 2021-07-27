@@ -16,7 +16,7 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('article_id');
+            $table->unsignedBigInteger('accomodation_id');
             $table->string('comment');
             $table->timestamps();
 
@@ -25,9 +25,9 @@ class CreateCommentsTable extends Migration
                 ->on('users')
                 ->onDelete('cascade');
                 
-            $table->foreign('article_id')
+            $table->foreign('accomodation_id')
                 ->references('id')
-                ->on('articles')
+                ->on('accomodations')
                 ->onDelete('cascade');
         });
     }
@@ -42,4 +42,3 @@ class CreateCommentsTable extends Migration
         Schema::dropIfExists('comments');
     }
 }
-
