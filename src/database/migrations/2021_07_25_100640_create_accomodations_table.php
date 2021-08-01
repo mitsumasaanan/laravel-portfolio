@@ -18,6 +18,7 @@ class CreateAccomodationsTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->string('name');
             $table->bigInteger('category_id')->unsigned();
+            $table->string('summary');
             $table->string('url');
             $table->softDeletes();
             $table->timestamps();
