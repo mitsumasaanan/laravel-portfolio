@@ -10,10 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// このルーティングはLaravelのウェルカムページを表示するためのものなので削除してください
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AccomodationController@index');
 
 //認証系(ユーザー登録、ログイン、ログアウト)ルーティング
 Auth::routes();
