@@ -22,6 +22,10 @@
                                         <p class="col-md-6">{{ $accomodation->name }}</p>
                                     </div>
                                     <div class="row">
+                                        <p class="col-md-4 text-md-right">国</p>
+                                        <p class="col-md-6">{{ $accomodation->category->country }}</p>
+                                    </div>
+                                    <div class="row">
                                         <p class="col-md-4 text-md-right">URL</p>
                                         <p class="col-md-6">
                                             <a href="{{ $accomodation->url }}" target="_blank">{{ $accomodation->url }}</a>
