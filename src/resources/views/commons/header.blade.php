@@ -4,13 +4,13 @@
             <a class="navbar-brand site-logo" href="{{ route('top') }}">タビログ</a>
             <ul class="navbar-nav ml-auto mr-3">
 
-                {{-- @if(Auth::check())
+                @if(Auth::check())
 
                     <li class="nav-item">
-                        <a class="nav-link" href={{ route('articles.create') }}><i class="fas fa-pen mr-2"></i>投稿する</a>
+                        <a class="nav-link" href="{{-- {{ route('articles.create') }} --}}"><i class="fas fa-pen mr-2"></i>投稿する</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('user.show') }}">マイページ</a>
+                        <a class="nav-link" href="{{-- {{ route('user.show') }} --}}">マイページ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
@@ -18,9 +18,9 @@
                         <form id="logout" method="POST" action="{{ route('logout') }}">
                             @csrf
                         </form>
-                    </li> --}}
+                    </li>
 
-                {{-- @else --}}
+                @else
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">ログイン</a>
@@ -29,7 +29,7 @@
                         <a class="nav-link" href="{{ route('register') }}">ユーザー登録</a>
                     </li>
 
-                {{-- @endif --}}
+                @endif
             </ul>
         </nav>
     </div>
