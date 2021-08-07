@@ -18,6 +18,6 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/user', 'UserController@show')->name('user.show');
     Route::resource('user', 'UserController', ['only' => ['edit', 'update']]);
-    Route::resource('articles', 'AccomodationController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+    Route::resource('accomodations', 'AccomodationController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
 });
-Route::resource('articles', 'AccomodationController', ['only' => ['show']]);
+Route::resource('accomodations', 'AccomodationController', ['only' => ['show']]);
