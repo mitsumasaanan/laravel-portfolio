@@ -15,6 +15,11 @@
                                         <i class="fas fa-user-edit mr-2"></i>
                                         {{ $accomodation->user->name }}
                                     </div>
+                                    @if(Auth::id() == $accomodation->user->id)
+                                    <div class="d-flex justify-content-around">
+                                        <a class="btn btn-secondary rounded-pill" href="{{ route('accomodations.edit', ['accomodation' => $accomodation]) }}"><i class="far fa-edit"></i>編集</a>
+                                    </div>
+                                    @endif
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
