@@ -39,4 +39,16 @@ class AccomodationController extends Controller
         $accomodation->save();
         return redirect()->route('top');
     }
+
+    public function edit(Accomodation $accomodation)
+    {
+        return view('accomodations.edit', ['accomodation' => $accomodation]);
+    }
+
+    public function update(AccomodationRequest $request, Accomodation $accomodation)
+    {
+        $accomodation->fill($request->all());
+        $accomodation->save();
+        return redirect()->route('top');
+    }
 }

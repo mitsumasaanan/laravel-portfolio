@@ -15,7 +15,7 @@ class AccomodationsTableSeeder extends Seeder
             'user_id' => '1',
             'name' =>  'ボルテックス スイーツ KLCC クアラルンプール ホテル＆サービゼズ',
             'category_id' => '1',
-            'summary' => '目の前がKLツインタワーで、最高の立地。コスパも最高',
+            'summary' => '目の前がKLツインタワーで、最高の立地です！コスパも最高です。',
             'url' => 'https://goo.gl/maps/hzBPe54e88bHJzaQ7',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
