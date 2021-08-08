@@ -18,6 +18,13 @@
                                     @if(Auth::id() == $accomodation->user->id)
                                     <div class="d-flex justify-content-around">
                                         <a class="btn btn-secondary rounded-pill" href="{{ route('accomodations.edit', ['accomodation' => $accomodation]) }}"><i class="far fa-edit"></i>編集</a>
+                                        <form method="POST" action="{{ route('accomodations.destroy', ['accomodation' => $accomodation]) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger rounded-pill mx-1" type="submit">
+                                                <i class="far fa-trash-alt"></i>削除
+                                            </button>
+                                        </form>
                                     </div>
                                     @endif
                                 </div>

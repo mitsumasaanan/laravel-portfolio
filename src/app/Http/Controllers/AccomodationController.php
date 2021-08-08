@@ -51,4 +51,10 @@ class AccomodationController extends Controller
         $accomodation->save();
         return redirect()->route('top');
     }
+
+    public function destroy(Accomodation $accomodation)
+    {
+        $accomodation->delete();
+        return redirect()->route('top');
+    }
 }
