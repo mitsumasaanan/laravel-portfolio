@@ -17,15 +17,10 @@ class AccomodationController extends Controller
         return view('accomodations.index', ['accomodations' => $accomodations]);
     }
 
-    //public function show(Accomodation $accomodation)
-    //{
-    //    return view('accomodations.show', ['accomodation' => $accomodation]);
-    //}
-
-    //public function show(Article $accomodation)
-    //{
-    //    return view('accomodations.show', ['article' => $article]);
-    //}
+    public function show(Accomodation $accomodation)
+    {
+        return view('accomodations.show', ['accomodation' => $accomodation]);
+    }
 
     public function create()
     {
