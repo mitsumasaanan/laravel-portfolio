@@ -19,7 +19,7 @@
                                     class="text-danger">(※)</span></label>
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="山田太郎">
-                                <small>Slack名を入力してください。</small>
+                                <!-- <small>Slack名を入力してください。</small> -->
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

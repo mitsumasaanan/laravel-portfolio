@@ -12,7 +12,7 @@
                             <div class="card mb-5">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <div class="font-weight-bold">
-                                        <i class="fas fa-user-edit mr-2"></i>
+                                        <i class="fas fa-user-circle mr-2"></i>
                                         {{ $accomodation->user->name }}
                                     </div>
                                     @if(Auth::id() == $accomodation->user->id)
@@ -48,7 +48,7 @@
                                         <p class="col-md-6">{{ $accomodation->created_at }}</p>
                                     </div>
                                     <div class="row">
-                                         <a href="{{-- {{ route('accomodations.show', ['accomdation' => $accomodation]) }} --}}" class="btn btn-success text-white col-md-4 mx-auto">詳細を見る</a> 
+                                         <a href="{{ route('accomodations.show', ['accomodation' => $accomodation]) }}" class="btn btn-info text-white col-md-4 mx-auto">詳細を見る</a> 
                                     </div>
                                 </div>
                             </div>                        
