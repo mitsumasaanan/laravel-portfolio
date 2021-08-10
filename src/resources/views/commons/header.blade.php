@@ -7,14 +7,14 @@
                 @if(Auth::check())
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('accomodations.create') }}"><i class="fas fa-pen mr-2"></i>投稿する</a>
+                        <a class="nav-link" href="{{ route('accomodations.create') }}">投稿する<i class="fas fa-sticky-note mr-2"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{-- {{ route('user.show') }} --}}">マイページ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout').submit();">ログアウト</a>
+                            onclick="event.preventDefault(); document.getElementById('logout').submit();">ログアウト<i class="fa fa-sign-out-alt"></i></a>
                         <form id="logout" method="POST" action="{{ route('logout') }}">
                             @csrf
                         </form>
@@ -23,10 +23,10 @@
                 @else
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+                        <a class="nav-link" href="{{ route('login') }}">ログイン<i class="fa fa-sign-in-alt"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">ユーザー登録</a>
+                        <a class="nav-link" href="{{ route('register') }}">ユーザー登録 <i class="fa fa-user"></i></a>
                     </li>
 
                 @endif
