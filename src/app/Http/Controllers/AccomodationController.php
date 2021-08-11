@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\AccomodationRequest;
 use App\Accomodation;
+use App\Comment;
 use App\User;
 use App\Http\Controllers\Controller;
 
@@ -19,6 +20,8 @@ class AccomodationController extends Controller
 
     public function show(Accomodation $accomodation)
     {
+        //$comments = $accomodation->comments;
+        //return view('accomodations.show', ['accomodation' => $accomodation], ['comments' => $comments]);
         return view('accomodations.show', ['accomodation' => $accomodation]);
     }
 
