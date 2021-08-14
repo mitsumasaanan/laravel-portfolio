@@ -19,15 +19,11 @@ class AccomodationController extends Controller
     {
         $accomodations = Accomodation::with('user')->orderBy('id', 'desc')->paginate(10);
         $categories = Category::orderBy('id','asc')->get();
-        //dd($categories);
         return view('accomodations.index', ['accomodations' => $accomodations], ['categories' => $categories]);
-        //return view('accomodations.index', compact($accomodations, $categories));
     }
 
     public function show(Accomodation $accomodation)
     {
-        //$comments = $accomodation->comments;
-        //return view('accomodations.show', ['accomodation' => $accomodation], ['comments' => $comments]);
         return view('accomodations.show', ['accomodation' => $accomodation]);
     }
 
@@ -67,7 +63,7 @@ class AccomodationController extends Controller
         // 検索結果を代入
         $searchData = $accomodation->search($request);
 
-        // 期とカテゴリーの検索範囲を定義したメソッドの戻り値を代入
+        // カテゴリーの検索範囲を定義したメソッドの戻り値を代入
         $searchRanges = $accomodation->searchRange();
 
         return view('accomodations.index', $searchData, $searchRanges);
