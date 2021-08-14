@@ -29,4 +29,48 @@ class Accomodation extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function searchRange()
+    {
+        return [
+            'categories' => Category::all(),
+        ];
+    }
+
+    public function search($request)
+    {
+        // バリデーション済みのリクエストパラメーターの連想配列
+        $search = [
+            'category' => intval($request->category),
+            'word' => $request->word,
+        ];
+
+        // リクエストパラメーターに該当するレコードの取得
+        $accomodations = $this->query()
+            ->when($search['category'], function ($q) use ($search){
+                return $q->where('category_id', $search['category']);
+            })
+            ->when($search['word'], function ($q) use ($search){
+                return $q->where('name', 'like', '%' . $this->escapeLike($search['word']) . '%');
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
+        // 検索結果とページング時に検索条件を保持するための配列を値に持つ連想配列
+        $searchData = [
+            'accomodations' => $accomodations,
+            'retentionParams' => [
+                'category' => $search['category'] ?? null,
+                'word' => $search['word'] ?? null,
+            ],
+        ];
+
+        return $searchData;
+    }
+
+    public static function escapeLike($str)
+    {
+        return str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $str);
+    }
+
 }

@@ -6,16 +6,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\AccomodationRequest;
 use App\Accomodation;
+use App\Category;
 use App\Comment;
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SearchRequest;
 
 class AccomodationController extends Controller
 {
+
     public function index()
     {
         $accomodations = Accomodation::with('user')->orderBy('id', 'desc')->paginate(10);
-        return view('accomodations.index', ['accomodations' => $accomodations]);
+        $categories = Category::orderBy('id','asc')->get();
+        //dd($categories);
+        return view('accomodations.index', ['accomodations' => $accomodations], ['categories' => $categories]);
+        //return view('accomodations.index', compact($accomodations, $categories));
     }
 
     public function show(Accomodation $accomodation)
@@ -55,4 +61,16 @@ class AccomodationController extends Controller
         $accomodation->delete();
         return redirect()->route('top');
     }
+
+    public function search(SearchRequest $request, Accomodation $accomodation)
+    {
+        // 検索結果を代入
+        $searchData = $accomodation->search($request);
+
+        // 期とカテゴリーの検索範囲を定義したメソッドの戻り値を代入
+        $searchRanges = $accomodation->searchRange();
+
+        return view('accomodations.index', $searchData, $searchRanges);
+    }
+
 }

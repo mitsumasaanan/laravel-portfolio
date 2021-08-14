@@ -10,4 +10,10 @@ class Category extends Model
     {
         return $this->hasMany(Accomodation::class);
     }
+
+    public function getLists()
+    {
+        $categories = Category::orderBy('id','asc')->pluck('name', 'id');
+        return $categories;
+    }
 }
