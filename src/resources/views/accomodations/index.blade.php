@@ -4,8 +4,37 @@
 @section('content')
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                <div class="row justify-content-center my-4">
+                <form action="{{ route('accomodations.search') }}">
+                    <div class="form-group form-inline">
+                        <label for="category" class="mr-4 pr-3 col-form-label">カテゴリー</label>
+                        <select name="category" id="category" class="form-control">
+                            <option value=""></option>
+                            @foreach($categories as $category)
+                                @if($category->id === ($retentionParams['category'] ?? ''))
+                                    <option value="{{ $category->id }}" selected>{{ $category->country }}</option>
+                                @else
+                                    <option value="{{ $category->id }}">{{ $category->country }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label for="word" class="mr-4 col-form-label">フリーワード</label>
+                        <input type="text" name="word" id="word" maxlength="100" class="form-control" value="{{-- {{ $retentionParams['word'] ?? '' }} --}}">
+                    </div>
+                    <button type="submit" class="btn btn-info text-white d-block mx-auto mt-4">検索する</button>
+                </form>
+            </div>
+
+            @if( count($accomodations)>0 )
+                {{ count($accomodations) }}件の検索結果がありました。
+            @else
+                検索に一致する宿はありません。
+            @endif
+            
             <div class="row">
                 @foreach ( $accomodations as $accomodation )
                     <div class="col-md-6">

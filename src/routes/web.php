@@ -12,6 +12,8 @@
 */
 Route::get('/', 'AccomodationController@index')->name('top');
 
+Route::get('/accomodations/search', 'AccomodationController@search')->name('accomodations.search');
+
 //認証系(ユーザー登録、ログイン、ログアウト)ルーティング
 Auth::routes();
 
