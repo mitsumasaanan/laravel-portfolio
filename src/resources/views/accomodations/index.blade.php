@@ -14,7 +14,7 @@
                             <option value=""></option>
                             @foreach($categories as $category)
                                 @if($category->id === ($retentionParams['category'] ?? ''))
-                                    <option value="{{ $category->category_id }}" selected>{{ $category->country }}</option>
+                                    <option value="{{ $category->id }}" selected>{{ $category->country }}</option>
                                 @else
                                     <option value="{{ $category->id }}">{{ $category->country }}</option>
                                 @endif
@@ -28,6 +28,13 @@
                     <button type="submit" class="btn btn-info text-white d-block mx-auto mt-4">検索する</button>
                 </form>
             </div>
+
+            @if( count($accomodations)>0 )
+                {{ count($accomodations) }}件の検索結果がありました。
+            @else
+                検索に一致する宿はありません。
+            @endif
+            
             <div class="row">
                 @foreach ( $accomodations as $accomodation )
                     <div class="col-md-6">
