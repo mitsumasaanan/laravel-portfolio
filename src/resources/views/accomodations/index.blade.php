@@ -32,7 +32,7 @@
             @if( count($accomodations)>0 )
                 {{ count($accomodations) }}件の検索結果がありました。
             @else
-                検索に一致する宿はありません。
+                検索条件に一致する宿はありません。
             @endif
             
             <div class="row">
