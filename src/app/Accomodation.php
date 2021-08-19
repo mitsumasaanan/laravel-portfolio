@@ -30,6 +30,11 @@ class Accomodation extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function favorite_users()
+    {
+        return $this->belongsToMany(User::class, 'favorites', 'accomodation_id', 'user_id')->withTimestamps();
+    }
+
     public function searchRange()
     {
         return [

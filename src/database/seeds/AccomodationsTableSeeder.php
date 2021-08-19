@@ -40,5 +40,15 @@ class AccomodationsTableSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
+
+        DB::table('accomodations')->insert([
+            'user_id' => '1',
+            'name' =>  'ibis bangkok siam',
+            'category_id' => '2',
+            'summary' => 'バンコクを代表する老舗ショッピングモールMBKセンターのすぐそばにあります。便利なエリアです。',
+            'url' => 'https://goo.gl/maps/v6JyA48gEiUF1Jmo9',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
     }
 }
