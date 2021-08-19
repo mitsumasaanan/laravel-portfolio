@@ -56,6 +56,19 @@
                                         </form>
                                     </div>
                                     @endif
+                                    @if(Auth::user())
+                                        @if(Auth::user()->is_favorite($accomodation->id))
+                                            <form method="POST" action="{{ route('unfavorite', $accomodation->id) }}">
+                                                @csrf
+                                                <input type="submit" value="保存済み" class="btn btn-primary rounded-pill">
+                                            </form>
+                                        @else
+                                            <form method="POST" action="{{ route('favorite', $accomodation->id) }}">
+                                                @csrf
+                                                <input type="submit" value="保存する" class="btn btn-success rounded-pill">
+                                            </form>
+                                        @endif
+                                    @endif
                                 </div>
                                 <div class="card-body">
                                     <div class="row">

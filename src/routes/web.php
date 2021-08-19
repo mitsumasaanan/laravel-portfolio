@@ -18,6 +18,11 @@ Route::get('/accomodations/search', 'AccomodationController@search')->name('acco
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
+    Route::group(['prefix' => 'accomodations/{id}'],function(){
+        Route::post('/favorite', 'FavoriteController@store')->name('favorite');
+        Route::post('/unfavorite', 'FavoriteController@destroy')->name('unfavorite');
+    });
+
     Route::get('/user', 'UserController@show')->name('user.show');
     Route::resource('user', 'UserController', ['only' => ['edit', 'update']]);
     Route::resource('accomodations', 'AccomodationController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
