@@ -21,37 +21,12 @@ class UserController extends Controller
         return view('user.mypage', ['auth' => $auth, 'accomodations' => $accomodations]);
     }
 
-    /*public function favorite()
-    {
-        $auth = Auth::user();
-        $accomodations = Accomodation::with('user')->orderBy('created_at', 'desc')->paginate(10);
-
-        return view('user.favorite', ['auth' => $auth, 'accomodations' => $accomodations]);
-    }*/
-
-    /*public function favorite($id){
-        $user = new User;
-        $user = User::find($id);
-
-        $accomodations = $user->accomodations()->get();
-        dd($accomodations);
-
-        if ($accomodations->isEmpty()) {
-            return view('user.favorite', compact('user', 'accomodations'));
-        }
-    }*/
-
     public function favorite($id)
     {
         $user = User::find($id);
-        //$favorites = $user->favorites()->paginate(9);
         
         $auth = Auth::user($id);
-        /*$data = [
-            'user' => $user,
-            'users' => $favorites,
-        ];*/
-
+        
         if ($user->favorites->isEmpty()) {
             return view('user.favorite', compact('user', 'auth'));
         } else {
@@ -64,10 +39,5 @@ class UserController extends Controller
             //dd($favorite_accomodations);
             return view('user.favorite', compact('user', 'favorite_accomodations', 'auth'));
         }       
-
-        //$data += $this->counts($user);
-        //$auth = Auth::user($id);
-        //return view('user.favorite', $data);
-        //return view('user.favorite', compact('auth', 'data'));
     }
 }
