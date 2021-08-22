@@ -20,4 +20,24 @@ class UserController extends Controller
         //view表示 [$authにユーザー情報のデータを渡す $accomodationsに記事投稿データを渡す]
         return view('user.mypage', ['auth' => $auth, 'accomodations' => $accomodations]);
     }
+
+    public function favorite($id)
+    {
+        $user = User::find($id);
+        
+        $auth = Auth::user($id);
+        
+        if ($user->favorites->isEmpty()) {
+            return view('user.favorite', compact('user', 'auth'));
+        } else {
+            
+            foreach ($user->favorites as $favorite) {
+                $accomodationId = $favorite->id;
+            }
+            //dd($accomodationId);
+            $favorite_accomodations = Accomodation::where('user_id', $user->id)->get();
+            //dd($favorite_accomodations);
+            return view('user.favorite', compact('user', 'favorite_accomodations', 'auth'));
+        }       
+    }
 }

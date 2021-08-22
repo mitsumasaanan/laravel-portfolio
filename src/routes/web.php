@@ -28,4 +28,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('accomodations', 'AccomodationController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
     Route::post('comments', 'CommentsController@store')->name('comments.store');
 });
+
 Route::resource('accomodations', 'AccomodationController', ['only' => ['show']]);
+Route::get('user/{id}/favorite', 'UserController@favorite')->name('user.favorite');
+
