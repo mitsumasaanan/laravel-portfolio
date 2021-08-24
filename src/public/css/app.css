@@ -65,7 +65,6 @@ section {
 }
 
 body {
-  position: relative;　/* フッターにabsoluteを当てるため追記 */
   margin: 0;
   font-family: "Nunito", sans-serif;
   font-size: 0.9rem;
