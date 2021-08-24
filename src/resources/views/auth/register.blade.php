@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'ユーザー登録')
 @section('content')
-<div class="container">
+<div class="container container-hgt">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
