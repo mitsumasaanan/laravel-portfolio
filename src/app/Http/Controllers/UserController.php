@@ -24,19 +24,16 @@ class UserController extends Controller
     public function favorite($id)
     {
         $user = User::find($id);
-        
         $auth = Auth::user($id);
         
         if ($user->favorites->isEmpty()) {
+
             return view('user.favorite', compact('user', 'auth'));
+        
         } else {
+            //そのユーザーのお気に入り済み宿を格納
+            $favorite_accomodations = $user->favorites;
             
-            foreach ($user->favorites as $favorite) {
-                $accomodationId = $favorite->id;
-            }
-            //dd($accomodationId);
-            $favorite_accomodations = Accomodation::where('user_id', $user->id)->get();
-            //dd($favorite_accomodations);
             return view('user.favorite', compact('user', 'favorite_accomodations', 'auth'));
         }       
     }

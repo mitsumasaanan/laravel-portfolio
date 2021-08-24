@@ -52,8 +52,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Accomodation::class, 'favorites', 'user_id', 'accomodation_id')->withTimestamps();
     }
 
-
-
     public function is_favorite($accomodationId)
     {
         return $this->favorites()->where('accomodation_id', $accomodationId)->exists();
