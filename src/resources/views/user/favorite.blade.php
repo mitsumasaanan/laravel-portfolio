@@ -2,7 +2,7 @@
 @section('title', 'お気に入りの宿')
 @section('content')
 
-<div class="container">
+<div class="container container-hgt">
     <div class="row justify-content-center">
         <div class="col-md-9">
             @include('user.myinfo')
