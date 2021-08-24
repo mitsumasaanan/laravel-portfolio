@@ -19,8 +19,8 @@
                         </div>
                         <div class="row">
                             <p class="col-md-4 text-md-right text-dark">URL</p>
-                            <p class="col-md-6 text-dark">
-                                {{ $favorite_accomodation->url }}
+                            <p class="col-md-6">
+                                <a href="{{ $favorite_accomodation->url }}" target="_blank" rel="noopener noreferrer">{{ $favorite_accomodation->url }}</a>
                             </p>
                         </div>
                     </div>
