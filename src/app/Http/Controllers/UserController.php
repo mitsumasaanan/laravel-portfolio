@@ -26,15 +26,10 @@ class UserController extends Controller
         $user = User::find($id);
         $auth = Auth::user($id);
         
-        if ($user->favorites->isEmpty()) {
-
-            return view('user.favorite', compact('user', 'auth'));
-        
-        } else {
             //そのユーザーのお気に入り済み宿を格納
             $favorite_accomodations = $user->favorites;
             
             return view('user.favorite', compact('user', 'favorite_accomodations', 'auth'));
-        }       
+         
     }
 }
