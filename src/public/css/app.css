@@ -10949,3 +10949,11 @@ html,body{
 .container-hgt{
   height: 100%;
 }
+
+.container-expanded{
+  height: 140%;
+}
+
+a.nav-link {
+  text-align: center;
+}
