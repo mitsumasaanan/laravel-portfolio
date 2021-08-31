@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container container-expanded">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="row justify-content-center my-4">
