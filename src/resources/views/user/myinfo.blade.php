@@ -21,7 +21,9 @@
         </div>
         <div class="d-flex justify-content-center my-2">
             <a class="btn btn-secondary col-md-2 mr-2" href="/" role="button">戻る</a>
+            @unless (Auth::id() == 4)
             <a class="btn btn-info text-white col-md-2" href="{{ route('user.edit', Auth::user()) }}" role="button">編集</a>
+            @endunless
         </div>
     </div>
 </div>

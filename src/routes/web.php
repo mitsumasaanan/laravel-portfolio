@@ -17,6 +17,9 @@ Route::get('/accomodations/search', 'AccomodationController@search')->name('acco
 //認証系(ユーザー登録、ログイン、ログアウト)ルーティング
 Auth::routes();
 
+//ゲストユーザーログイン
+Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
+
 Route::group(['middleware' => ['auth']], function() {
     Route::group(['prefix' => 'accomodations/{id}'],function(){
         Route::post('/favorite', 'FavoriteController@store')->name('favorite');

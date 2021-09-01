@@ -31,10 +31,13 @@
                     @else
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">ログイン<i class="fa fa-sign-in-alt"></i></a>
+                            <a class="nav-link" href="{{ route('register') }}">ユーザー登録 <i class="fa fa-user"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">ユーザー登録 <i class="fa fa-user"></i></a>
+                            <a class="nav-link" href="{{ route('login') }}">ログイン<i class="fa fa-sign-in-alt"></i></a>
+                        </li>
+                        <li class="nav-item btn-success">
+                            <a class="nav-link text-white" href="{{ route('login.guest') }}">ゲストログイン</a>
                         </li>
 
                     @endif
