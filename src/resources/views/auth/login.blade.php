@@ -35,6 +35,11 @@
                                 <button class="btn btn-primary">
                                     ログイン
                                 </button>
+                                <button class="btn btn-success">
+                                <a href="{{ route('login.guest') }}" class="text-white">
+                                    ゲストログイン
+                                </a>
+                                </button>
                             </div>
                         </div>
                     </form>
