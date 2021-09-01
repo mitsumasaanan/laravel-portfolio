@@ -27,7 +27,7 @@ Route::group(['middleware' => ['auth']], function() {
     });
 
     Route::get('/user', 'UserController@show')->name('user.show');
-    Route::resource('user', 'UserController', ['only' => ['edit', 'update']]);
+    Route::resource('user', 'UserController', ['only' => ['edit', 'update', 'destroy']]);
     Route::resource('accomodations', 'AccomodationController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
     Route::post('comments', 'CommentsController@store')->name('comments.store');
 });

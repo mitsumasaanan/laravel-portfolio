@@ -32,4 +32,10 @@ class UserController extends Controller
             return view('user.favorite', compact('user', 'favorite_accomodations', 'auth'));
          
     }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return view('/');
+    }
 }
