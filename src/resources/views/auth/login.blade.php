@@ -36,9 +36,9 @@
                                     ログイン
                                 </button>
                                 <button class="btn btn-success">
-                                <a href="{{ route('login.guest') }}" class="text-white">
-                                    ゲストログイン
-                                </a>
+                                    <a href="{{ route('login.guest') }}" class="text-white text-decoration-none">
+                                        ゲストログイン
+                                    </a>
                                 </button>
                             </div>
                         </div>
