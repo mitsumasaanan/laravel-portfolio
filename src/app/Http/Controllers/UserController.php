@@ -38,4 +38,10 @@ class UserController extends Controller
         $user->delete();
         return view('/');
     }
+
+    public function delete_confirm()
+    {
+        return view('user.delete_confirm');
+    }
+
 }

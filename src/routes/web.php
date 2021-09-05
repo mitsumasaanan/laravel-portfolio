@@ -20,6 +20,9 @@ Auth::routes();
 //ゲストユーザーログイン
 Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
 
+//退会確認ページ
+Route::get('user/deleteconfirm','UserController@delete_confirm')->name('user.delete_confirm');
+
 Route::group(['middleware' => ['auth']], function() {
     Route::group(['prefix' => 'accomodations/{id}'],function(){
         Route::post('/favorite', 'FavoriteController@store')->name('favorite');

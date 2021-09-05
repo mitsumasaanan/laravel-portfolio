@@ -23,11 +23,7 @@
             <a class="btn btn-secondary text-white col-sm-2 d-flex justify-content-center align-items-center mr-2" href="/" role="button">戻る</a>
             @unless (Auth::id() == 4)
             <a class="btn btn-info text-white col-sm-2 d-flex justify-content-center align-items-center mr-2" href="{{ route('user.edit', Auth::user()) }}" role="button">編集</a>
-            <form class="btn btn-danger col-sm-2" action="{{ route('user.destroy', Auth::user()) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">退会</button>
-            </form>
+            <a class="btn btn-danger text-white col-sm-2 d-flex justify-content-center align-items-center mr-2" href="{{ route('user.delete_confirm') }}" role="button">退会</a>
             @endunless
         </div>
     </div>
