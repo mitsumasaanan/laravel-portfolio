@@ -25,7 +25,7 @@
                         <label for="word" class="mr-4 col-form-label">フリーワード</label>
                         <input type="text" name="word" id="word" maxlength="100" class="form-control" value="{{-- {{ $retentionParams['word'] ?? '' }} --}}">
                     </div>
-                    <button type="submit" class="btn btn-info text-white d-block mx-auto mt-4">検索する</button>
+                    <button type="submit" class="btn base-bg text-white d-block mx-auto mt-4">検索する</button>
                 </form>
             </div>
             @if( count($accomodations)>0 )
@@ -37,7 +37,7 @@
                 @foreach ( $accomodations as $accomodation )
                     <div class="col-md-6">
                         <div class="card mb-5">
-                            <div class="card-header d-flex justify-content-between align-items-center">
+                            <div class="card-header d-flex base-bg justify-content-between align-items-center">
                                 <div class="font-weight-bold">
                                     <i class="fas fa-user-circle mr-2"></i>
                                     {{ $accomodation->user->name }}
@@ -88,7 +88,7 @@
                                     <p class="col-md-6">{{ $accomodation->created_at }}</p>
                                 </div>
                                 <div class="row">
-                                    <a href="{{ route('accomodations.show', ['accomodation' => $accomodation]) }}" class="btn btn-info text-white col-md-4 mx-auto">詳細を見る</a> 
+                                    <a href="{{ route('accomodations.show', ['accomodation' => $accomodation]) }}" class="btn base-bg text-white col-md-4 mx-auto">詳細を見る</a> 
                                 </div>
                             </div>
                         </div>                        

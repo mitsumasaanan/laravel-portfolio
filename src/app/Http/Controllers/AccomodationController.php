@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\AccomodationRequest;
 use App\Accomodation;
+use App\AccomodationImg;
 use App\Category;
 use App\Comment;
 use App\User;
@@ -17,14 +18,16 @@ class AccomodationController extends Controller
 
     public function index()
     {
-        $accomodations = Accomodation::with('user')->orderBy('id', 'desc')->paginate(10);
+        $accomodations = Accomodation::with('user', 'accomodationImgs')->orderBy('id', 'desc')->paginate(10);
         $categories = Category::orderBy('id','asc')->get();
         return view('accomodations.index', ['accomodations' => $accomodations], ['categories' => $categories]);
     }
 
     public function show(Accomodation $accomodation)
     {
-        return view('accomodations.show', ['accomodation' => $accomodation]);
+        $accomodationImgs = Accomodation::with('accomodationImgs')->get();
+        //return view('accomodations.show', ['accomodation' => $accomodation]);
+        return view('accomodations.show', compact('accomodation','accomodationImgs'));
     }
 
     public function create()
@@ -32,11 +35,19 @@ class AccomodationController extends Controller
         return view('accomodations.create');
     }
 
-    public function store(AccomodationRequest $request, Accomodation $accomodation)
+    public function store(AccomodationRequest $request, Accomodation $accomodation, AccomodationImg $accomodationImg)
     {
         $accomodation->user_id = Auth::id();
         $accomodation->fill($request->all());
         $accomodation->save();
+
+        if ($request->hasFile('accomodation_img')) {
+            $filename = $request->file('accomodation_img')->getClientOriginalName();
+            $img_path = $request->file('accomodation_img')->storeAs('public/images', $filename);
+            $accomodation->accomodationImgs()->create(['img_path' => $filename]);
+        }
+        //dd($filename);
+
         return redirect()->route('top');
     }
 

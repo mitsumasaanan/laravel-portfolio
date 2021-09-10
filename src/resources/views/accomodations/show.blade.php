@@ -33,6 +33,9 @@
                                 <p class="text-md-right col-md-4">URL</p>
                                 <a class="col-md-7" href="{{ $accomodation->url }}">{{ $accomodation->url }}</a>
                             </div>
+                            {{-- @foreach ($accomodation->accomodationImgs as $accomodationImg)
+                                {{ $accomodationImg->img_path }}
+                            @endforeach --}}
                         </div>
                         
                         <div class="row justify-content-center">

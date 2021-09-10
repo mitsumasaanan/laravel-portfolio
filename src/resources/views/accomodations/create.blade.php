@@ -12,30 +12,21 @@
                 </div>
                 <div class="card-body col-md-8 mx-auto">
             
-                    <form method="POST" action="{{ route('accomodations.store') }}">
+                    <form method="POST" action="{{ route('accomodations.store') }}" enctype="multipart/form-data">
                         @csrf
                             <div class="form-group row" >
                                 <p class="col-md-12 text-center"><span class="text-danger">(※)</span>は入力必須項目です</p>
                             </div>
-                        
                             <div class="form-group">
                                 <label for="name">
                                     タイトル<span class="text-danger">(※)</span>
                                 </label>
-                                <input 
-                                    name="name"
-                                    type="text"
-                                    class="form-control"
-                                    value="{{old('name')}}"
-                                    placeholder="記事タイトル"
-                                    autofocus
-                                >
+                                <input name="name" type="text" class="form-control" value="{{old('name')}}" placeholder="記事タイトル" autofocus>
                                 <div class="text-danger">
                                     {{ $errors->first('name') }}
                                 </div>
                                 <p class="small text-muted">30字以内で入力してください。</p>
                             </div>
-
                             <div class="form-group">
                                 <label for="category">
                                     カテゴリー<span class="text-danger">(※)</span>
@@ -61,48 +52,37 @@
                                     {{ $errors->first('category_id') }}
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label for="summary">
                                     宿概要<span class="text-danger">(※)</span>
                                 </label>
-                                
-                                <textarea 
-                                    name="summary" 
-                                    id="" 
-                                    cols="50" 
-                                    rows="6"
-                                    class="form-control"
-                                    placeholder="宿概要"
-                                    >{{ old('summary') }}</textarea>
+                                <textarea name="summary" id="" cols="50" rows="6" class="form-control" placeholder="宿概要">{{ old('summary') }}</textarea>
                                 <div class="text-danger">
                                     {{ $errors->first('summary') }}
                                 </div>
                                 <p class="small text-muted">30字以内で入力してください。</p>                              
                             </div>
-                            
+                            <div class="form-group">
+                                <label for="summary">
+                                    画像投稿
+                                </label><br>
+                                <input id="accomodation_img" type="file" name="accomodation_img">
+                                <div class="text-danger">
+                                    {{ $errors->first('accomodation_img') }}
+                                </div>
+                                <p class="small text-muted">ファイル形式はjpg、png、gifにしてください。</p>                              
+                            </div>
                             <div class="form-group">
                                 <label for="url">
                                     記事URL<span class="text-danger">(※)</span>
                                 </label>
-                                
-                                <input 
-                                    name="url"
-                                    type="text"
-                                    class="form-control"
-                                    value="{{old('url')}}"
-                                    placeholder="地図URL"
-                                >
+                                <input name="url" type="text" class="form-control" value="{{old('url')}}" placeholder="地図URL">
                                 <div class="text-danger">
                                     {{ $errors->first('url') }}
                                 </div>
                                 <p class="small text-muted">GoogleマップのURLを入力してください。</p>
                             </div>                          
-                                <input 
-                                type="submit" 
-                                class="btn btn-block btn-success mt-5 col-md-4 mx-auto"
-                                value="投稿する"
-                                >   
+                                <input type="submit" class="btn btn-block base-bg text-white mt-5 col-md-4 mx-auto" value="投稿する">   
                     </form>
                 </div>
             </div>
