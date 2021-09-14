@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Requests\AccomodationRequest;
 use App\Accomodation;
@@ -42,9 +43,12 @@ class AccomodationController extends Controller
         $accomodation->save();
 
         if ($request->hasFile('accomodation_img')) {
-            $filename = $request->file('accomodation_img')->getClientOriginalName();
-            $img_path = $request->file('accomodation_img')->storeAs('public/images', $filename);
-            $accomodation->accomodationImgs()->create(['img_path' => $filename]);
+            //$filename = $request->file('accomodation_img')->getClientOriginalName();
+            //$img_path = $request->file('accomodation_img')->storeAs('public/images', $filename);
+            //$accomodation->accomodationImgs()->create(['img_path' => $filename]);
+            $accomodation_img = $request->file('accomodation_img');
+            $url = Storage::disk('s3')->putFile('pf-images', $accomodation_img, 'public');
+            $accomodation->accomodationImgs()->create(['img_path' => $url]);
         }
         //dd($filename);
 

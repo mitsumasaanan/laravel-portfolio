@@ -2,7 +2,7 @@
 @section('title', '宿一覧')
 
 @section('content')
-
+<!-- <img src="{{ asset('images/azlan-baharudin-qzVTbe_WHSw-unsplash.jpg') }}"> -->
 <div class="container container-expanded">
     <div class="row justify-content-center">
         <div class="col-md-10">
