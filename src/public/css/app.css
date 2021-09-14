@@ -10963,3 +10963,7 @@ a.nav-link {
     font-size: 12px;
   }
 }
+
+.base-bg{
+  background: linear-gradient(70deg, orange, pink);
+}

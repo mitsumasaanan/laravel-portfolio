@@ -28,6 +28,7 @@ class AccomodationRequest extends FormRequest
             'category_id' => 'required|string|max:1',
             'summary' => 'required|string|min:30',
             'url' => 'required|string|url',
+            'accomodation_img' => 'file|mimes:jpeg,png,jpg,bmb|max:2048',
         ];
     }
 }

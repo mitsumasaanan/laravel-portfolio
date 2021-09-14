@@ -1,6 +1,6 @@
 <header id="header">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark text-white mb-5 bg-info">
+        <nav class="navbar navbar-expand-md navbar-dark text-white mb-5 base-bg">
             <a class="navbar-brand site-logo" href="{{ route('top') }}">タビログ <i class="fa fa-plane-departure"></i></a>
             
             @if(Auth::check())
