@@ -2,12 +2,8 @@
 
 @section('content')
 
-    <div class="center jumbotron bg-info">
-
-        <div class="text-center text-white">
-            <h1>タビログ</h1>
-        </div>
-
+    <div class="center">
+        <img src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/welcome1.jpg') }}">
     </div>
 
 @endsection
