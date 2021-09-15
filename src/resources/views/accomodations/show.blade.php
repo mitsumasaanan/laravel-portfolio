@@ -33,6 +33,11 @@
                                 <p class="text-md-right col-md-4">URL</p>
                                 <a class="col-md-7" href="{{ $accomodation->url }}">{{ $accomodation->url }}</a>
                             </div>
+                            <div class="row mb-2">
+                            @foreach ($accomodation->accomodationImgs as $accomodationImg)
+                                <img src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/'.$accomodationImg->img_path) }}" class="d-block mx-auto" width="400" height="300">
+                            @endforeach
+                            </div>
                             {{-- @foreach ($accomodation->accomodationImgs as $accomodationImg)
                                 {{ $accomodationImg->img_path }}
                             @endforeach --}}
