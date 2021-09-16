@@ -10,7 +10,7 @@
 </div>
 <div class="container container-expanded">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-2">
             <div class="row justify-content-center my-4">
                 <form action="{{ route('accomodations.search') }}">
                     <div class="form-group form-inline">
@@ -33,6 +33,8 @@
                     <button type="submit" class="btn base-bg text-white d-block mx-auto mt-4">検索する</button>
                 </form>
             </div>
+        </div>
+        <div class="col-md-9">
             <div>
                 <h2 class="h2 text-center">Accomodations</h2>
                 <hr class="hr--small">
@@ -44,7 +46,7 @@
             @endif
             <div class="row">
                 @foreach ( $accomodations as $accomodation )
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card mb-5">
                             <div class="card-header d-flex base-bg justify-content-between align-items-center">
                                 <div class="font-weight-bold">

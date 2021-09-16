@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        @stack('css')
 
     </head>
 

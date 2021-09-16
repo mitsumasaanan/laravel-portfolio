@@ -10942,8 +10942,16 @@ a.text-dark:focus {
   }
 }
 
-html,body{
+/*html,body{
   height:100%;
+}*/
+body{
+  position: relative;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
 }
 
 .container-hgt{
@@ -10977,7 +10985,7 @@ a.nav-link {
 
 .welcome-message{
   position: absolute;
-  top: 50%;
+  top: 10%;
   left: 10%;
   background-color: rgb(255,255,255,0.7);
   height: 250px;
@@ -10987,6 +10995,7 @@ a.nav-link {
 
 @media screen and (max-width: 767px) {
   .welcome-message{
+    top: 5%;
     left: 50%;
     width: 70%;
     transform: translate(-50%, 0%);
@@ -10999,5 +11008,16 @@ a.nav-link {
 
 .hr--small{
   margin: 20px auto;
-  width: 50px;
+  width: 80px;
+  border-top: 1px solid rgba(255, 165, 0, 0.5);
+}
+
+nav.navbar.navbar-expand-md.navbar-dark.text-white.mb-5.base-bg{
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+li.nav-item>a.nav-link.active {
+  background: linear-gradient(70deg, orange, pink);
 }
