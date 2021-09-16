@@ -24,11 +24,6 @@ class AccomodationController extends Controller
         return view('accomodations.index', ['accomodations' => $accomodations], ['categories' => $categories]);
     }
 
-    public function welcome()
-    {
-        return view('welcome');
-    }
-
     public function show(Accomodation $accomodation)
     {
         $accomodationImgs = Accomodation::with('accomodationImgs')->get();

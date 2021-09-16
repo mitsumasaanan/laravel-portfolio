@@ -2,7 +2,12 @@
 @section('title', '宿一覧')
 
 @section('content')
-<!-- <img src="{{ asset('images/azlan-baharudin-qzVTbe_WHSw-unsplash.jpg') }}"> -->
+<div class="d-flex justify-content-center center">
+        <img class="welcome-img" src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/girl-1031169_1280.jpg') }}">
+</div>
+<div class="d-flex justify-content-center align-items-center welcome-message">
+    <h2>旅先のおすすめの宿泊施設を共有するアプリ</br>タビログです</h2>
+</div>
 <div class="container container-expanded">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -27,6 +32,10 @@
                     </div>
                     <button type="submit" class="btn base-bg text-white d-block mx-auto mt-4">検索する</button>
                 </form>
+            </div>
+            <div>
+                <h2 class="h2 text-center">Accomodations</h2>
+                <hr class="hr--small">
             </div>
             @if( count($accomodations)>0 )
                 {{ count($accomodations) }}件の検索結果がありました。

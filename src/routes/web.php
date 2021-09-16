@@ -11,7 +11,6 @@
 |
 */
 Route::get('/', 'AccomodationController@index')->name('top');
-Route::get('/welcome', 'AccomodationController@welcome')->name('welcome');
 
 Route::get('/accomodations/search', 'AccomodationController@search')->name('accomodations.search');
 
