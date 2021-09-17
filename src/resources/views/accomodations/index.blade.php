@@ -8,9 +8,9 @@
 <div class="d-flex justify-content-center align-items-center welcome-message">
     <h2>旅先のおすすめの宿泊施設を共有するアプリ</br>タビログです</h2>
 </div>
-<div class="container container-expanded">
+<div class="mt-5 container container-expanded">
     <div class="row justify-content-center">
-        <div class="col-md-2">
+        <div class="container col-md-2">
             <div class="row justify-content-center my-4">
                 <form action="{{ route('accomodations.search') }}">
                     <div class="form-group form-inline">

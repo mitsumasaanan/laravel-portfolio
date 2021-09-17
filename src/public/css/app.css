@@ -66,11 +66,13 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  /*font-family: "Nunito", sans-serif;*/
+  font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #212529;
+  /*color: #212529;*/
+  color: #212121;
   text-align: left;
   background-color: #f8fafc;
 }
@@ -4929,7 +4931,8 @@ input[type=button].btn-block {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  /*color: rgba(255, 255, 255, 0.5);*/
+  color: white;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
@@ -4980,6 +4983,7 @@ input[type=button].btn-block {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  box-shadow: 0 0 4px 1px rgb(0 0 0 / 20%);
 }
 
 .card > hr {
@@ -10973,7 +10977,7 @@ a.nav-link {
 }
 
 .base-bg{
-  background: linear-gradient(70deg, orange, pink);
+  background: linear-gradient(70deg, orange, #F7C147);
 }
 
 .welcome-img{
@@ -10985,8 +10989,8 @@ a.nav-link {
 
 .welcome-message{
   position: absolute;
-  top: 10%;
-  left: 10%;
+  top: 7%;
+  left: 2%;
   background-color: rgb(255,255,255,0.7);
   height: 250px;
   width: 30%;
@@ -11020,4 +11024,9 @@ nav.navbar.navbar-expand-md.navbar-dark.text-white.mb-5.base-bg{
 
 li.nav-item>a.nav-link.active {
   background: linear-gradient(70deg, orange, pink);
+}
+
+.row.justify-content-center.my-4 {
+  position: sticky;
+  top: 100px;
 }
