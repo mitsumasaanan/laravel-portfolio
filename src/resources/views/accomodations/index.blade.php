@@ -9,14 +9,13 @@
     <h2>旅先のおすすめの宿泊施設を共有するアプリ</br>タビログです</h2>
 </div>
 <div class="mt-5 container container-expanded">
-    <div class="row justify-content-center">
-        <div class="container col-md-2">
-            <div class="row justify-content-center my-4">
-                <form action="{{ route('accomodations.search') }}">
-                    <div class="form-group form-inline">
-                        <label for="category" class="mr-4 pr-3 col-form-label">カテゴリー</label>
+    <div class="d-flex col-md-8 justify-content-center container mt-5 sticky-search">
+            <div class="row col-md-7 justify-content-center mb-5">
+                <form class="d-flex" action="{{ route('accomodations.search') }}">
+                    <!-- <div class="form-group form-inline"> -->
+                        <!-- <label for="category" class="mr-4 pr-3 col-form-label">カテゴリー</label> -->
                         <select name="category" id="category" class="form-control">
-                            <option value=""></option>
+                            <option value='' disabled selected style='display:none;'>国カテゴリー</option>
                             @foreach($categories as $category)
                                 @if($category->id === ($retentionParams['category'] ?? ''))
                                     <option value="{{ $category->id }}" selected>{{ $category->country }}</option>
@@ -25,15 +24,16 @@
                                 @endif
                             @endforeach
                         </select>
-                    </div>
-                    <div class="form-group form-inline">
-                        <label for="word" class="mr-4 col-form-label">フリーワード</label>
-                        <input type="text" name="word" id="word" maxlength="100" class="form-control" value="{{-- {{ $retentionParams['word'] ?? '' }} --}}">
-                    </div>
-                    <button type="submit" class="btn base-bg text-white d-block mx-auto mt-4">検索する</button>
+                    <!-- </div> -->
+                    <!-- <div class="form-group form-inline"> -->
+                        <!-- <label for="word" class="mr-4 col-form-label">フリーワード</label> -->
+                        <input placeholder="フリーワード" type="text" name="word" id="word" maxlength="100" class="form-control" value="{{-- {{ $retentionParams['word'] ?? '' }} --}}">
+                    <!-- </div> -->
+                    <button type="submit" class="btn base-bg text-white d-block mx-auto"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-        </div>
+    </div>
+    <div class="row justify-content-center">
         <div class="col-md-9">
             <div>
                 <h2 class="h2 text-center">Accomodations</h2>
@@ -106,7 +106,7 @@
                     </div>
                 @endforeach    
             </div>
-            <div class="col-md-4 mx-auto d-flex justify-content-center">
+            <div class="col-md-4 mx-auto d-flex justify-content-center mb-5">
                 {{ $accomodations->links('pagination::bootstrap-4') }}
             </div>
         </div>
