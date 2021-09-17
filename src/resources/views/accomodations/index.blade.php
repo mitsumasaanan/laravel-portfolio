@@ -14,7 +14,7 @@
                 <form class="d-flex" action="{{ route('accomodations.search') }}">
                     <!-- <div class="form-group form-inline"> -->
                         <!-- <label for="category" class="mr-4 pr-3 col-form-label">カテゴリー</label> -->
-                        <select name="category" id="category" class="form-control">
+                        <select name="category" id="category" class="form-control" style="border-radius: 0.25rem 0 0 0.25rem;">
                             <option value='' disabled selected style='display:none;'>国カテゴリー</option>
                             @foreach($categories as $category)
                                 @if($category->id === ($retentionParams['category'] ?? ''))
@@ -27,9 +27,9 @@
                     <!-- </div> -->
                     <!-- <div class="form-group form-inline"> -->
                         <!-- <label for="word" class="mr-4 col-form-label">フリーワード</label> -->
-                        <input placeholder="フリーワード" type="text" name="word" id="word" maxlength="100" class="form-control" value="{{-- {{ $retentionParams['word'] ?? '' }} --}}">
+                        <input placeholder="フリーワード" type="text" name="word" id="word" maxlength="100" class="form-control" value="{{-- {{ $retentionParams['word'] ?? '' }} --}}" style="border-radius: unset">
                     <!-- </div> -->
-                    <button type="submit" class="btn base-bg text-white d-block mx-auto"><i class="fa fa-search"></i></button>
+                    <button type="submit" class="btn base-bg text-white d-block mx-auto" style="border-radius: 0 0.25rem 0.25rem 0; border: 1px solid #ced4da;"><i class="fa fa-search"></i></button>
                 </form>
             </div>
     </div>

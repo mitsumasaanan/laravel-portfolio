@@ -11028,6 +11028,7 @@ nav.navbar.navbar-expand-md.navbar-dark.text-white.mb-5.base-bg{
   position: fixed;
   width: 100%;
   z-index: 10;
+  box-shadow: 0 0 4px 1px rgb(0 0 0 / 20%);
 }
 
 li.nav-item>a.nav-link.active {
@@ -11042,7 +11043,7 @@ li.nav-item>a.nav-link.active {
 @media screen and (min-width: 768px) {
   .sticky-search{
     position: sticky;
-    top: 10px;
+    top: 9px;
     z-index: 10;
   }
 }
