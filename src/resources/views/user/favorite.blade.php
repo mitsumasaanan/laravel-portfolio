@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 @section('title', 'お気に入りの宿')
+@push('css')
+    <link href="{{ asset('css/sub.css') }}" rel="stylesheet">
+@endpush
 @section('content')
 
 <div class="container container-hgt">

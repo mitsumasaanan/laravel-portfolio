@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 @section('title', 'ログイン')
+@push('css')
+    <link href="{{ asset('css/sub.css') }}" rel="stylesheet">
+@endpush
 @section('content')
 <div class="container container-hgt">
     <div class="row justify-content-center">
