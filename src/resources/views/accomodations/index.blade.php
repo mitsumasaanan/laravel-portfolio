@@ -9,35 +9,62 @@
     <h2>旅先のおすすめの宿泊施設を共有するアプリ</br>タビログです</h2>
 </div>
 <div class="mt-5 container container-expanded">
-    <div class="d-flex col-md-8 justify-content-center container mt-5 sticky-search">
-            <div class="row col-md-7 justify-content-center mb-5">
-                <form class="d-flex" action="{{ route('accomodations.search') }}">
-                    <!-- <div class="form-group form-inline"> -->
-                        <!-- <label for="category" class="mr-4 pr-3 col-form-label">カテゴリー</label> -->
-                        <select name="category" id="category" class="form-control" style="border-radius: 0.25rem 0 0 0.25rem;">
-                            <option value='' disabled selected style='display:none;'>国カテゴリー</option>
-                            @foreach($categories as $category)
-                                @if($category->id === ($retentionParams['category'] ?? ''))
-                                    <option value="{{ $category->id }}" selected>{{ $category->country }}</option>
-                                @else
-                                    <option value="{{ $category->id }}">{{ $category->country }}</option>
-                                @endif
-                            @endforeach
-                        </select>
-                    <!-- </div> -->
-                    <!-- <div class="form-group form-inline"> -->
-                        <!-- <label for="word" class="mr-4 col-form-label">フリーワード</label> -->
-                        <input placeholder="フリーワード" type="text" name="word" id="word" maxlength="100" class="form-control" value="{{-- {{ $retentionParams['word'] ?? '' }} --}}" style="border-radius: unset">
-                    <!-- </div> -->
-                    <button type="submit" class="btn base-bg text-white d-block mx-auto" style="border-radius: 0 0.25rem 0.25rem 0; border: 1px solid #ced4da;"><i class="fa fa-search"></i></button>
-                </form>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <div>
+                    <h2 class="h2 text-center">About</h2>
+                    <hr class="hr--small">
+                </div>
             </div>
+        </div>
+        <div class="row d-flex flex-wrap my-5">
+            <div class="col-md-6">
+                <img src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/andrea-davis-NngNVT74o6s-unsplash.jpg') }}" style="width: 100%;">
+            </div>
+            <div class="d-flex align-items-center col-md-6">
+                <p class="section-message">旅先のお気に入りのホテルやホステルを登録して、ご友人とシェアしてみませんか？</p>
+            </div>
+        </div>
+        <div class="row d-flex flex-wrap my-5">
+            <div class="col-md-6 order-md-2">
+                <img src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/backpack-1149544_640.jpg') }}" style="width: 100%;">
+            </div>
+            <div class="d-flex align-items-center col-md-6 order-md-1">
+                <p class="section-message">お気に入り機能やコメント機能も活用して、友人と交流してみましょう。</p>
+            </div>
+        </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-9">
             <div>
                 <h2 class="h2 text-center">Accomodations</h2>
                 <hr class="hr--small">
+            </div>
+            <div class="d-flex col-md-9 justify-content-center container mt-5 sticky-search">
+                <div class="row col-md-8 justify-content-center mb-5">
+                    <form class="d-flex" action="{{ route('accomodations.search') }}">
+                        <!-- <div class="form-group form-inline"> -->
+                            <!-- <label for="category" class="mr-4 pr-3 col-form-label">カテゴリー</label> -->
+                            <select name="category" id="category" class="form-control" style="border-radius: 0.25rem 0 0 0.25rem;">
+                                <!-- <option value='' disabled selected style='display:none;'>国カテゴリー</option> -->
+                                <option value=''></option>
+                                @foreach($categories as $category)
+                                    @if($category->id === ($retentionParams['category'] ?? ''))
+                                        <option value="{{ $category->id }}" selected>{{ $category->country }}</option>
+                                    @else
+                                        <option value="{{ $category->id }}">{{ $category->country }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        <!-- </div> -->
+                        <!-- <div class="form-group form-inline"> -->
+                            <!-- <label for="word" class="mr-4 col-form-label">フリーワード</label> -->
+                            <input placeholder="フリーワード" type="text" name="word" id="word" maxlength="100" class="form-control" value="{{-- {{ $retentionParams['word'] ?? '' }} --}}" style="border-radius: unset">
+                        <!-- </div> -->
+                        <button type="submit" class="btn base-bg text-white d-block mx-auto" style="border-radius: 0 0.25rem 0.25rem 0; border: 1px solid #ced4da;"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
             </div>
             @if( count($accomodations)>0 )
                 {{ count($accomodations) }}件の検索結果がありました。
@@ -55,12 +82,12 @@
                                 </div>
                                 @if(Auth::id() == $accomodation->user->id)
                                 <div class="d-flex justify-content-around">
-                                    <a class="btn btn-secondary rounded-pill" href="{{ route('accomodations.edit', ['accomodation' => $accomodation]) }}"><i class="far fa-edit"></i> 編集</a>
+                                    <a class="btn btn-secondary rounded-pill" href="{{ route('accomodations.edit', ['accomodation' => $accomodation]) }}">編集<i class="far fa-edit"></i></a>
                                     <form method="POST" action="{{ route('accomodations.destroy', ['accomodation' => $accomodation]) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger rounded-pill mx-1" type="submit">
-                                            <i class="far fa-trash-alt"></i> 削除
+                                            削除<i class="far fa-trash-alt"></i>
                                         </button>
                                     </form>
                                 </div>
