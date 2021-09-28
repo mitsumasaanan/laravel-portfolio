@@ -4,7 +4,7 @@
     <link href="{{ asset('css/sub.css') }}" rel="stylesheet">
 @endpush
 @section('content')
-<div class="container container-hgt">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
