@@ -10953,20 +10953,20 @@ a.text-dark:focus {
 /*html,body{
   height:100%;
 }*/
-body{
+body {
   position: relative;
 }
 
-footer{
+footer {
   position: absolute;
   bottom: 0;
 }
 
-.container-hgt{
+.container-hgt {
   height: 100%;
 }
 
-.container-expanded{
+.container-expanded {
   height: 140%;
 }
 
@@ -10980,18 +10980,18 @@ a.nav-link {
   }
 }
 
-.base-bg{
+.base-bg {
   background: linear-gradient(70deg, orange, #F7C147);
 }
 
-.welcome-img{
+.welcome-img {
   width: 100%;
-  height: 107vh;
+  height: 94vh;
   object-fit: cover;
   margin-top: -50px;
 }
 
-.welcome-message{
+.welcome-message {
   position: absolute;
   top: 7%;
   left: 2%;
@@ -11001,12 +11001,12 @@ a.nav-link {
   padding: 25px;
 }
 
-.section-message{
+.section-message {
   font-size: 1.2rem;
 }
 
 @media screen and (max-width: 767px) {
-  .welcome-message{
+  .welcome-message {
     top: 5%;
     left: 50%;
     width: 70%;
@@ -11020,25 +11020,25 @@ a.nav-link {
   }
 }
 
-.h2{
+.h2 {
   font-size: 2.5em;
 }
 
-.hr--small{
+.hr--small {
   margin: 20px auto;
   width: 80px;
   border-top: 1px solid rgba(255, 165, 0, 0.5);
 }
 
 nav.navbar.navbar-expand-md.navbar-dark.text-white.mb-5.base-bg{
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   z-index: 10;
   box-shadow: 0 0 4px 1px rgb(0 0 0 / 20%);
 }
 
 li.nav-item>a.nav-link.active {
-  background: linear-gradient(70deg, orange, pink);
+  background: linear-gradient(70deg, orange, #F7C147);
 }
 
 .row.justify-content-center.my-4 {
@@ -11052,4 +11052,10 @@ li.nav-item>a.nav-link.active {
     top: 9px;
     z-index: 10;
   }
+}
+
+header#header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
