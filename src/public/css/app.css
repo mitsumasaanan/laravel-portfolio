@@ -11059,3 +11059,8 @@ header#header {
     top: 0;
     z-index: 10;
 }
+
+.show-img{
+  max-width: 100%;
+  max-height: 300px;
+}
