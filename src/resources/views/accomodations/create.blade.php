@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mb-5">
                 <div class="card-header text-center">
                     <h3><i class="fas fa-pen"></i>記事投稿</h3>
                 </div>

@@ -1,10 +1,5 @@
 @extends('layouts.layout')
 @section('title', '宿詳細')
-@unless (Auth::check())
-    @push('css')
-        <link href="{{ asset('css/sub.css') }}" rel="stylesheet">
-    @endpush
-@endunless
 @section('content')
 
     <div class="container">
@@ -15,8 +10,8 @@
                         <h3>宿詳細 <i class="fa fa-hotel"></i></h3>
                     </div>
                     <div class="d-flex flex-wrap">
-                        <div class="card-body col-md-7">
-                            <div class="row mb-2">
+                        <div class="card-body col-md-7 d-flex align-items-center">
+                            <div class="row my-2">
                             @foreach ($accomodation->accomodationImgs as $accomodationImg)
                                 <img class="d-block mx-auto show-img" src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/'.$accomodationImg->img_path) }}">
                             @endforeach
@@ -25,24 +20,19 @@
                         <div class="card-body col-md-5">
                             <div class="card-body">
                                 <div class="row mb-2">
-                                    <p class="text-md-right col-md-4">投稿者</p>
-                                    <p class="col-md-7">{{ $accomodation->user->name }}</p>
+                                    <p><i class="fas fa-user-circle mr-2"></i>{{ $accomodation->user->name }}</p>
                                 </div>
                                 <div class="row mb-2">
-                                    <p class="text-md-right col-md-4">タイトル</p>
-                                    <p class="col-md-7">{{ $accomodation->name }}</p>
+                                    <p><i class="fa fa-hotel"></i> {{ $accomodation->name }}</p>
                                 </div>
                                 <div class="row mb-2">
-                                    <p class="text-md-right col-md-4">国</p>
-                                    <p class="col-md-7">{{ $accomodation->category->country }}</p>
+                                    <p>{{ $accomodation->summary }}</p>
                                 </div>
                                 <div class="row mb-2">
-                                    <p class="text-md-right col-md-4">宿概要</p>
-                                    <p class="col-md-7">{{ $accomodation->summary }}</p>
+                                    <p><i class="fa fa-globe"></i> {{ $accomodation->category->country }}</p>
                                 </div>
                                 <div class="row mb-2">
-                                    <p class="text-md-right col-md-4">URL</p>
-                                    <a class="col-md-7" href="{{ $accomodation->url }}">{{ $accomodation->url }}</a>
+                                    <a href="{{ $accomodation->url }}">{{ $accomodation->url }}</a>
                                 </div>
                             </div>
                             
@@ -106,8 +96,8 @@
                         
                         @forelse($accomodation->comments as $comment)
                             <p><i class="fas fa-user mr-2 text-dark"></i>{{ $comment->user->name }}（投稿日時：{{ $comment->created_at }} ）</p>
-                            <p>{{ $comment->comment }}</p>
-                            <hr>
+                            <p>　{{ $comment->comment }}</p>
+                            <hr class="mb-0">
                         @empty
                             <p>コメントはありません</p>
                         @endforelse
