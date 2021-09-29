@@ -10,11 +10,13 @@
                         <h3>宿詳細 <i class="fa fa-hotel"></i></h3>
                     </div>
                     <div class="d-flex flex-wrap">
-                        <div class="card-body col-md-7 d-flex align-items-center">
+                        <div class="card-body col-md-7 d-flex justify-content-center align-items-center">
                             <div class="row my-2">
-                            @foreach ($accomodation->accomodationImgs as $accomodationImg)
+                            @forelse ($accomodation->accomodationImgs as $accomodationImg)
                                 <img class="d-block mx-auto show-img" src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/'.$accomodationImg->img_path) }}">
-                            @endforeach
+                            @empty
+                                <img class="d-block mx-auto show-img" src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/no-image-grey.jpeg') }}">
+                            @endforelse
                             </div>
                         </div>
                         <div class="card-body col-md-5">

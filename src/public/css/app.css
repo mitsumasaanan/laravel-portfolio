@@ -11062,4 +11062,5 @@ header#header {
 
 .show-img{
   max-width: 100%;
+  max-height: 300px;
 }
