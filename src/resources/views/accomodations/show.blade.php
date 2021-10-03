@@ -36,6 +36,9 @@
                                 <div class="row mb-2">
                                     <a href="{{ $accomodation->url }}">{{ $accomodation->url }}</a>
                                 </div>
+                                <div class="row mb-2">
+                                    <p>投稿日：{{ $accomodation->created_at }}</p>
+                                </div>
                             </div>
                             
                             <div class="row justify-content-center">
