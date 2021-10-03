@@ -106,34 +106,20 @@
                                     @endif
                                 @endif
                             </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <p class="col-md-4 text-md-right">画像</p>
-                                    @foreach ($accomodation->accomodationImgs as $accomodationImg)
-                                    <img class="col-md-6" src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/'.$accomodationImg->img_path) }}">
-                                    @endforeach
+                            <div class="row card-body">
+                                <div class="col-md-6">
+                                    @forelse ($accomodation->accomodationImgs as $accomodationImg)
+                                    <img class="show-img" src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/'.$accomodationImg->img_path) }}">
+                                    @empty
+                                    <img class="d-block mx-auto show-img2" src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/no-image-grey.jpeg') }}">
+                                    @endforelse
                                 </div>
-                                <div class="row">
-                                    <p class="col-md-4 text-md-right">タイトル</p>
-                                    <p class="col-md-6">{{ $accomodation->name }}</p>
+                                <div class="col-md-6">
+                                    <p><i class="fa fa-hotel"></i> {{ $accomodation->name }}</p>
+                                    <p><i class="fa fa-globe"></i> {{ $accomodation->category->country }}</p>
+                                    <p>投稿日：{{ $accomodation->created_at }}</p>    
                                 </div>
-                                <div class="row">
-                                    <p class="col-md-4 text-md-right">国</p>
-                                    <p class="col-md-6">{{ $accomodation->category->country }}</p>
-                                </div>
-                                <div class="row">
-                                    <p class="col-md-4 text-md-right">URL</p>
-                                    <p class="col-md-6">
-                                        <a href="{{ $accomodation->url }}" target="_blank">{{ $accomodation->url }}</a>
-                                    </p>
-                                </div>
-                                <div class="row">
-                                    <p class="col-md-4 text-md-right">投稿日時</p>
-                                    <p class="col-md-6">{{ $accomodation->created_at }}</p>
-                                </div>
-                                <div class="row">
-                                    <a href="{{ route('accomodations.show', ['accomodation' => $accomodation]) }}" class="btn base-bg text-white col-md-4 mx-auto">詳細を見る</a> 
-                                </div>
+                                <a href="{{ route('accomodations.show', ['accomodation' => $accomodation]) }}" class="btn base-bg text-white col-md-4 mx-auto mt-3">詳細を見る</a> 
                             </div>
                         </div>                        
                     </div>
