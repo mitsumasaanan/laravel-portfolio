@@ -108,6 +108,12 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
+                                    <p class="col-md-4 text-md-right">画像</p>
+                                    @foreach ($accomodation->accomodationImgs as $accomodationImg)
+                                    <img class="col-md-6" src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/'.$accomodationImg->img_path) }}">
+                                    @endforeach
+                                </div>
+                                <div class="row">
                                     <p class="col-md-4 text-md-right">タイトル</p>
                                     <p class="col-md-6">{{ $accomodation->name }}</p>
                                 </div>
