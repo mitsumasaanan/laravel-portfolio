@@ -10,6 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+if (env('APP_ENV') === 'production') {
+    URL::forceSchema('https');
+}
+
 Route::get('/', 'AccomodationController@index')->name('top');
 
 Route::get('/accomodations/search', 'AccomodationController@search')->name('accomodations.search');
