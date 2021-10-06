@@ -60,7 +60,7 @@
                                 <div class="text-danger">
                                     {{ $errors->first('summary') }}
                                 </div>
-                                <p class="small text-muted">30字以内で入力してください。</p>                              
+                                <p class="small text-muted">30字以上で入力してください。</p>                              
                             </div>
                             <div class="form-group">
                                 <label for="summary">
@@ -74,13 +74,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="url">
-                                    記事URL<span class="text-danger">(※)</span>
+                                    参考URL<span class="text-danger">(※)</span>
                                 </label>
                                 <input name="url" type="text" class="form-control" value="{{old('url')}}" placeholder="地図URL">
                                 <div class="text-danger">
                                     {{ $errors->first('url') }}
                                 </div>
-                                <p class="small text-muted">GoogleマップのURLを入力してください。</p>
+                                <p class="small text-muted">Googleマップ等のURLを入力してください。</p>
                             </div>                          
                                 <input type="submit" class="btn btn-block base-bg text-white mt-5 col-md-4 mx-auto" value="投稿する">   
                     </form>
