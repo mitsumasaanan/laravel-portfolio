@@ -23,7 +23,7 @@
                 <img src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/andrea-davis-NngNVT74o6s-unsplash.jpg') }}" style="width: 100%;">
             </div>
             <div class="d-flex align-items-center col-md-6">
-                <p class="section-message">旅先のお気に入りのホテルやホステルを登録して、ご友人とシェアしてみませんか？</p>
+                <p class="section-message">旅先のお気に入りのホテルやホステルを登録して、友達とシェアしてみませんか？</p>
             </div>
         </div>
         <div class="row d-flex flex-wrap my-5">
@@ -31,7 +31,7 @@
                 <img src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/backpack-1149544_640.jpg') }}" style="width: 100%;">
             </div>
             <div class="d-flex align-items-center col-md-6 order-md-1">
-                <p class="section-message">お気に入り機能やコメント機能も活用して、友人と交流してみましょう。</p>
+                <p class="section-message">コメント機能も活用して、友人と交流してみましょう。</p>
             </div>
         </div>
     </div>
@@ -44,24 +44,17 @@
             <div class="d-flex col-md-9 justify-content-center container mt-5 sticky-search">
                 <div class="row col-md-8 justify-content-center mb-5">
                     <form class="d-flex" action="{{ route('accomodations.search') }}">
-                        <!-- <div class="form-group form-inline"> -->
-                            <!-- <label for="category" class="mr-4 pr-3 col-form-label">カテゴリー</label> -->
-                            <select name="category" id="category" class="form-control" style="border-radius: 0.25rem 0 0 0.25rem;">
-                                <!-- <option value='' disabled selected style='display:none;'>国カテゴリー</option> -->
-                                <option value=''></option>
-                                @foreach($categories as $category)
-                                    @if($category->id === ($retentionParams['category'] ?? ''))
-                                        <option value="{{ $category->id }}" selected>{{ $category->country }}</option>
-                                    @else
-                                        <option value="{{ $category->id }}">{{ $category->country }}</option>
-                                    @endif
-                                @endforeach
-                            </select>
-                        <!-- </div> -->
-                        <!-- <div class="form-group form-inline"> -->
-                            <!-- <label for="word" class="mr-4 col-form-label">フリーワード</label> -->
-                            <input placeholder="フリーワード" type="text" name="word" id="word" maxlength="100" class="form-control" value="{{-- {{ $retentionParams['word'] ?? '' }} --}}" style="border-radius: unset">
-                        <!-- </div> -->
+                        <select name="category" id="category" class="form-control" style="border-radius: 0.25rem 0 0 0.25rem;">
+                            <option value=''></option>
+                            @foreach($categories as $category)
+                                @if($category->id === ($retentionParams['category'] ?? ''))
+                                    <option value="{{ $category->id }}" selected>{{ $category->country }}</option>
+                                @else
+                                    <option value="{{ $category->id }}">{{ $category->country }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        <input placeholder="フリーワード" type="text" name="word" id="word" maxlength="100" class="form-control" value="{{-- {{ $retentionParams['word'] ?? '' }} --}}" style="border-radius: unset">
                         <button type="submit" class="btn base-bg text-white d-block mx-auto" style="border-radius: 0 0.25rem 0.25rem 0; border: 1px solid #ced4da;"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
@@ -82,8 +75,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end">
                                     @if(Auth::id() == $accomodation->user->id)
-                                    <!-- <div class="d-flex justify-content-around"> -->
-                                        <a class="btn btn-secondary rounded-pill" href="{{ route('accomodations.edit', ['accomodation' => $accomodation]) }}">編集<i class="far fa-edit"></i></a>
+                                    <a class="btn btn-secondary rounded-pill" href="{{ route('accomodations.edit', ['accomodation' => $accomodation]) }}">編集<i class="far fa-edit"></i></a>
                                         <form method="POST" action="{{ route('accomodations.destroy', ['accomodation' => $accomodation]) }}">
                                             @csrf
                                             @method('DELETE')
@@ -91,7 +83,6 @@
                                                 削除<i class="far fa-trash-alt"></i>
                                             </button>
                                         </form>
-                                    <!-- </div> -->
                                     @endif
                                     @if(Auth::user())
                                         @if(Auth::user()->is_favorite($accomodation->id))
