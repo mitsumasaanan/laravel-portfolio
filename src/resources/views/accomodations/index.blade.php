@@ -23,7 +23,7 @@
                 <img src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/andrea-davis-NngNVT74o6s-unsplash.jpg') }}" style="width: 100%;">
             </div>
             <div class="d-flex align-items-center col-md-6">
-                <p class="section-message">旅先のお気に入りのホテルやホステルを登録して、友達とシェアしてみませんか？</p>
+                <p class="section-message">旅先のお気に入りのホテルやホステルを登録して、友人とシェアしてみませんか？</p>
             </div>
         </div>
         <div class="row d-flex flex-wrap my-5">
