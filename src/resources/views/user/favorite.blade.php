@@ -40,6 +40,9 @@
                                     <a href="{{ $favorite_accomodation->url }}" target="_blank" rel="noopener noreferrer">{{ $favorite_accomodation->url }}</a>
                                 </p>
                             </div>
+                            <div class="row">
+                                <a href="{{ route('accomodations.show', $favorite_accomodation->id) }}" class="btn base-bg text-white col-md-4 mx-auto">詳細を見る</a>
+                            </div>
                         </div>
                     </div>
                     @endforeach

@@ -42,7 +42,7 @@
                 </p>
             </div>
                 <div class="row">
-                    <a href="{{ route('accomodations.show', ['accomodation' => $accomodation]) }}" class="btn btn-info text-white col-md-4 mx-auto">詳細を見る</a>
+                    <a href="{{ route('accomodations.show', ['accomodation' => $accomodation]) }}" class="btn base-bg text-white col-md-4 mx-auto">詳細を見る</a>
                 </div>
         </div>
     </div>

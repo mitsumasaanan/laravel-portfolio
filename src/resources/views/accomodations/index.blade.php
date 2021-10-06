@@ -67,7 +67,7 @@
                 </div>
             </div>
             @if( count($accomodations)>0 )
-                {{ count($accomodations) }}件の検索結果がありました。
+                {{ count($accomodations) }}件の宿があります。
             @else
                 検索条件に一致する宿はありません。
             @endif
@@ -80,31 +80,33 @@
                                     <i class="fas fa-user-circle mr-2"></i>
                                     {{ $accomodation->user->name }}
                                 </div>
-                                @if(Auth::id() == $accomodation->user->id)
-                                <div class="d-flex justify-content-around">
-                                    <a class="btn btn-secondary rounded-pill" href="{{ route('accomodations.edit', ['accomodation' => $accomodation]) }}">編集<i class="far fa-edit"></i></a>
-                                    <form method="POST" action="{{ route('accomodations.destroy', ['accomodation' => $accomodation]) }}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger rounded-pill mx-1" type="submit">
-                                            削除<i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                                @endif
-                                @if(Auth::user())
-                                    @if(Auth::user()->is_favorite($accomodation->id))
-                                        <form method="POST" action="{{ route('unfavorite', $accomodation->id) }}">
+                                <div class="d-flex justify-content-end">
+                                    @if(Auth::id() == $accomodation->user->id)
+                                    <!-- <div class="d-flex justify-content-around"> -->
+                                        <a class="btn btn-secondary rounded-pill" href="{{ route('accomodations.edit', ['accomodation' => $accomodation]) }}">編集<i class="far fa-edit"></i></a>
+                                        <form method="POST" action="{{ route('accomodations.destroy', ['accomodation' => $accomodation]) }}">
                                             @csrf
-                                            <input type="submit" value="保存済み" class="btn btn-secondary rounded-pill">
+                                            @method('DELETE')
+                                            <button class="btn btn-danger rounded-pill mx-1" type="submit">
+                                                削除<i class="far fa-trash-alt"></i>
+                                            </button>
                                         </form>
-                                    @else
-                                        <form method="POST" action="{{ route('favorite', $accomodation->id) }}">
-                                            @csrf
-                                            <input type="submit" value="保存する" class="btn text-white btn-info rounded-pill">
-                                        </form>
+                                    <!-- </div> -->
                                     @endif
-                                @endif
+                                    @if(Auth::user())
+                                        @if(Auth::user()->is_favorite($accomodation->id))
+                                            <form method="POST" action="{{ route('unfavorite', $accomodation->id) }}">
+                                                @csrf
+                                                <input type="submit" value="保存済み" class="btn btn-secondary rounded-pill">
+                                            </form>
+                                        @else
+                                            <form method="POST" action="{{ route('favorite', $accomodation->id) }}">
+                                                @csrf
+                                                <input type="submit" value="保存する" class="btn text-white btn-info rounded-pill">
+                                            </form>
+                                        @endif
+                                    @endif
+                                </div>
                             </div>
                             <div class="row card-body">
                                 <div class="col-md-6">
