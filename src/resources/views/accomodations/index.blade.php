@@ -6,7 +6,7 @@
         <img class="welcome-img" src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/girl-1031169_1280.jpg') }}">
 </div>
 <div class="d-flex justify-content-center align-items-center welcome-message">
-    <h2>旅先のおすすめの宿泊施設を共有するアプリ</br>タビログです</h2>
+    <h2>旅先のおすすめの宿泊施設を共有するアプリ</br>「タビログ」です</h2>
 </div>
 <div class="mt-5 container container-expanded">
     <div class="container my-5">
@@ -20,7 +20,7 @@
         </div>
         <div class="row d-flex flex-wrap my-5">
             <div class="col-md-6">
-                <img src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/andrea-davis-NngNVT74o6s-unsplash.jpg') }}" style="width: 100%;">
+                <img class="about-img" src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/andrea-davis-NngNVT74o6s-unsplash.jpg') }}">
             </div>
             <div class="d-flex align-items-center col-md-6">
                 <p class="section-message">旅先のお気に入りのホテルやホステルを登録して、友人とシェアしてみませんか？</p>
@@ -28,7 +28,7 @@
         </div>
         <div class="row d-flex flex-wrap my-5">
             <div class="col-md-6 order-md-2">
-                <img src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/backpack-1149544_640.jpg') }}" style="width: 100%;">
+                <img  class="about-img" src="{{ asset('https://anan-laravel-portfolio.s3.ap-northeast-1.amazonaws.com/pf-images/backpack-1149544_640.jpg') }}">
             </div>
             <div class="d-flex align-items-center col-md-6 order-md-1">
                 <p class="section-message">コメント機能も活用して、友人と交流してみましょう。</p>
