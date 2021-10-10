@@ -64,7 +64,7 @@ class Accomodation extends Model
                 return $q->where('name', 'like', '%' . $this->escapeLike($search['word']) . '%');
             })
             ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->paginate(5);
 
         // 検索結果とページング時に検索条件を保持するための配列を値に持つ連想配列
         $searchData = [

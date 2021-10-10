@@ -19,7 +19,7 @@ class AccomodationController extends Controller
 
     public function index()
     {
-        $accomodations = Accomodation::with('user', 'accomodationImgs')->orderBy('id', 'desc')->paginate(10);
+        $accomodations = Accomodation::with('user', 'accomodationImgs')->orderBy('id', 'desc')->paginate(5);
         $categories = Category::orderBy('id','asc')->get();
         return view('accomodations.index', ['accomodations' => $accomodations], ['categories' => $categories]);
     }
